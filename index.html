@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script2.js"></script>
+</head>
+<body class="center">
+    <main class="calc">
+        <!-- Calculator Tabs -->
+        <nav class="calc_tabs">
+            <div class="calc_tab active" id="tab--flying">Flying</div>
+            <div class="calc_tab" id="tab--driving">Driving</div>
+        </nav>
+
+        <!-- Calculator Input Fields -->
+        <div class="calc_inputs">
+            <div id="input--days" class="input_group">
+                <label for="inputDays">Days</label>
+                <input class="input" type="number" name="inputDays" id="inputDays">
+            </div>
+            <div id="input--nights" class="input_group">
+                <label for="inputNights">Nights</label>
+                <input class="input" type="number" name="inputNights" id="inputNights">
+            </div>
+            <div id="input--people" class="input_group">
+                <label for="inputPeople">People</label>
+                <input class="input" type="number" name="inputPeople" id="inputPeople">
+            </div>
+            <div id="input--hours" class="input_group">
+                <label for="inputHours">Hours</label>
+                <input class="input" type="number" name="inputHours" id="inputHours">
+            </div>
+            <div id="input--cases" class="input_group">
+                <label for="inputCases">Cases</label>
+                <input class="input" type="number" name="inputCases" id="inputCases">
+            </div>
+        </div>
+        <hr class="divider">
+        <div class="btn" id="btn--calculate">Calculate</div>
+
+        <!-- Calculator Results Section -->
+        <div class="calc_results">
+            <div class="calc_total result_group">
+                <label for="resultTotalCost">Total Cost: </label>
+                <input class="result" type="number" name="resultTotalCost" id="resultTotalCost" disabled>
+            </div>
+            <hr>
+            <div class="calc_breakdown">
+                <div class="result_group" id="result--hotel">
+                    <label for="resultHotel">Hotel (per person)</label>
+                    <input class="result" type="number" name="resultHotel" id="resultHotel" disabled>
+                </div>
+                <div class="result_group" id="result--food">
+                    <label for="resultFood">Food (per person)</label>
+                    <input class="result" type="number" name="resultFood" id="resultFood" disabled>
+                </div>
+                <div class="result_group" id="result--tickets">
+                    <label for="resultTickets">Tickets (per person)</label>
+                    <input class="result" type="number" name="resultTickets" id="resultTickets" disabled>
+                </div>
+                <div class="result_group" id="result--travelTime">
+                    <label for="resultTravelTime">Travel Time (per person)</label>
+                    <input class="result" type="number" name="resultTravelTime" id="resultTravelTime" disabled>
+                </div>
+                <div class="result_group" id="result--shipping">
+                    <label for="resultShipping">Shipping (per case)</label>
+                    <input class="result" type="number" name="resultShipping" id="resultShipping" disabled>
+                </div>
+                <div class="result_group" id="result--carRental">
+                    <label for="resultCarRental">Car rental (per day)</label>
+                    <input class="result" type="number" name="resultCarRental" id="resultCarRental" disabled>
+                </div>
+
+                <!-- TESTING GROUP -->
+                <!-- <div class="result_group" id="result--test">
+                    <p class="label">Test (per day)</p>
+                    <div class="result" id="resultTest"></div>
+                </div> -->
+
+            </div>
+        </div>
+    </main>
+</body>
+</html>
