@@ -33,6 +33,7 @@ FIX/TO DO:
 
 body {
     min-height: 100vh;
+    background: var(--cc-lt);
 }
 
 .calc {
@@ -113,7 +114,7 @@ hr {
     width: 75%;
 }
 
-.calc_total label {
+.calc_total .label {
     font-size: 2.5rem;
     font-weight: 400;
     color: var(--cc-dk);

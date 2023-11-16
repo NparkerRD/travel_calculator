@@ -64,6 +64,10 @@ TASKS:
     * Get results on page on calculate click
     * Create error handling for input not entered
     * Create driving tab view
+    * 
+LATER:
+    * Add commas to numbers
+    * Add clear function/button
 
 */
 // Get buttons from document
@@ -101,10 +105,10 @@ const getResults = function () {
     console.log(total);
 
     // Display total
-    document.querySelector('#resultTotalCost').value = total;
+    document.querySelector('#resultTotalCost').textContent = total;
 
     console.log(base_hotel * +inputNights.value);
-    document.querySelector('#resultHotel').value = base_hotel * +inputNights.value;
+    document.querySelector('#resultHotel').textContent = base_hotel * +inputNights.value;
     // document.querySelector('#resultTest').textContent = base_hotel * +inputNights.value;
 }
 
