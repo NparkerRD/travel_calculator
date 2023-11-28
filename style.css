@@ -152,8 +152,7 @@ hr {
 .result::before {
     content: '$';
     position: absolute;
-    top: 25;
-    left: 0;
+    left: 5px;
 }
 
 #btn--calculate {
