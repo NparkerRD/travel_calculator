@@ -28,7 +28,7 @@ const calc_driving = function(days, nights, people, hours, distance){
 const tabs = document.querySelectorAll(".calc_tab");
 const btnCalculate = document.querySelector("#btn--calculate");
 
-// 1) Get response for tab click
+
 tabs.forEach(tab => {
     tab.addEventListener('click', ()=> {
         console.log(tab);
