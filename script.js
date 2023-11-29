@@ -194,6 +194,6 @@ const getResults = () => {
 btnCalculate.addEventListener('click', () => getResults())
 document.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') getResults();
-    if (e.key === 'c') clearCalc();
+    if (e.key === 'c' || e.key === 'C') clearCalc();
 })
 
