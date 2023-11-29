@@ -1,0 +1,243 @@
+/*
+FIX/TO DO:
+    * Center input values
+    * Show when input is "active"
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rubik:wght@300;400;500&display=swap');
+
+:root {
+    /* Custom Colors */
+    --cc-primary: #845EC2;
+    --cc-lt: #F9F8FC;
+    --cc-dk: #170E25;
+    --cc-primary-66: #9F81CF;
+    --cc-primary-46: #6940AA;
+    --cc-error: #FF3333;
+    --cc-success: #66FF66;
+    --cc-warning: #E1E500;
+    /* Font settings */
+    --ff-main: 'Inter', sans-serif;
+}
+
+
+/* Reset defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid; */
+    font-family: var(--ff-main);
+}
+
+
+body {
+    min-height: 100vh;
+    background: var(--cc-lt);
+}
+
+.calc_container {
+    width: clamp(600px, 45%, 666px);
+    /* height: clamp(650px, 65%, 700px); */
+    min-height: 700px;
+    box-shadow: 3px 5px 15px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 20px 20px 200px 20px;
+    background: #fff;
+    position: relative;
+}
+
+.calc_tabs {
+    width: 100%;
+    display: flex;
+}
+
+.calc_tab {
+    background: var(--cc-lt);
+    color: var(--cc-dk);
+    padding: 15px 20px;
+    width: 25%;
+    text-align: center;
+    cursor: pointer;
+    transition: all ease .2s;
+}
+
+.calc_tab:nth-child(1) {
+    border-radius: 20px 0 0 0;
+}
+
+.calc_tab:hover{
+    transform: scale(1.05);
+}
+
+.calc_inputs {
+    width: 95%;
+    display: flex;
+    /* border: 1px solid; */
+    margin-left: 25px;
+    margin-top: 25px
+}
+
+.input_group {
+    display: flex;
+    flex-direction: column;
+    color: var(--cc-dk);
+    margin: 0 15px;
+    align-items: center;
+}
+
+.input {
+    background: var(--cc-lt);
+    width: 45px;
+    height: 45px;
+    border: none;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.25);
+    margin-top: 5px;
+    text-align: center;
+}
+
+hr {
+    width: 75%;
+    margin: 20px 0 10px 20px;
+}
+
+.calc_results {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.calc_total {
+    padding-left: 20px;
+    padding-right: 140px;
+    align-items: center;
+    margin: 20px 0;
+    width: 75%;
+}
+
+.calc_total .label {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--cc-dk);
+}
+
+#resultTotalCost {
+    width: 150px;
+}
+
+.calc_breakdown {
+    margin: 5px 25px;
+    width: 75%;
+}
+
+.result_group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.25rem;
+    margin: 15px 0;
+}
+
+.result {
+    background: var(--cc-lt);
+    width: 100px;
+    height: 35px;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.25);
+    border: none;
+    text-align: right;
+    padding: 5px 10px;
+    color: var(--cc-dk);
+    position: relative;
+}
+
+.result::before {
+    content: '$';
+    position: absolute;
+    left: 5px;
+}
+
+#btn--calculate {
+    width: 90px;
+    height: 90px;
+    background: var(--cc-primary);
+    color: var(--cc-lt);
+    border-radius: 100%;
+    position: absolute;
+    top: 165px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 600;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.btn:hover {
+    box-shadow: 0px 0px 15px 5px rgba(0,0,0,.25);
+    transform: scale(1.05);
+}
+
+
+.active {
+    background: var(--cc-primary);
+    color: var(--cc-lt);
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Tooltip tutorial */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.tooltip-icon {
+    background-image: url('icons8-info-24.png');
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Calculator</title>
+    <link rel="stylesheet" href="travel_calculator.css">
+    <script defer src="script.js"></script>
+</head>
+<body class="center">
+    <main class="calc_container">
+        <!-- Calculator Tabs -->
+        <nav class="calc_tabs">
+            <div class="calc_tab active" id="tab--flying">Flying</div>
+            <div class="calc_tab" id="tab--driving">Driving</div>
+        </nav>
+
+        <!-- Calculator Input Fields -->
+        <div class="calc_inputs">
+            <div id="input--days" class="input_group">
+                <label for="inputDays">Days</label>
+                <input class="input" type="number" name="inputDays" id="inputDays">
+            </div>
+            <div id="input--nights" class="input_group">
+                <label for="inputNights">Nights</label>
+                <input class="input" type="number" name="inputNights" id="inputNights">
+            </div>
+            <div id="input--people" class="input_group">
+                <label for="inputPeople">People</label>
+                <input class="input" type="number" name="inputPeople" id="inputPeople">
+            </div>
+            <div id="input--hours" class="input_group">
+                <label for="inputHours">Hours</label>
+                <input class="input" type="number" name="inputHours" id="inputHours">
+            </div>
+            <div id="input--cases" class="input_group">
+                <label for="inputCases">Cases</label>
+                <input class="input input--flying" type="number" name="inputCases" id="inputCases">
+            </div>
+        </div>
+        <hr class="divider">
+        <div class="btn" id="btn--calculate">Calculate</div>
+
+        <!-- Calculator Results Section -->
+        <div class="calc_results">
+            <div class="calc_total result_group">
+                <p class="label">Total Cost: </p>
+                <div class="result" id="resultTotalCost"></div>
+            </div>
+            <hr>
+            <div class="calc_breakdown">
+                <div class="result_group" id="result--hotel">
+                    <p class="label">Hotel (per person)</p>
+                    <div class="result" id="resultHotel"></div>
+                </div>
+                <div class="result_group" id="result--food">
+                    <p class="label">Food (per person)</p>
+                    <div class="result" id="resultFood"></div>
+                </div>
+                <div class="result_group" id="result--travelTime">
+                    <p class="label">Travel Time (per person)</p>
+                    <div class="result" id="resultTravelTime"></div>
+                </div>
+                <div class="result_group" id="result--tickets">
+                    <p class="label">Tickets (per person)</p>
+                    <div class="result result--flying" id="resultTickets"></div>
+                </div>
+                <div class="result_group" id="result--shipping">
+                    <p class="label">Shipping (per case)</p>
+                    <div class="result result--flying" id="resultShipping"></div>
+                </div>
+                <div class="result_group" id="result--carRental">
+                    <p class="label">Car Rental (per day)</p>
+                    <div class="result result--flying" id="resultCarRental"></div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+</html>
