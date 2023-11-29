@@ -1,20 +1,5 @@
 "use strict";
 
-/*
-
-* When tab is clicked:
-    1. Add active class to tab
-    2. Check which tab has the active class
-    3. In the input fields, remove cases/distance and add in cases/distances (based on view)
-    4. In the results area, remove unnecessary results, and add appropriate results
-
-* When 'Calculate' is clicked:
-    1. Check which tab is active
-        - If flying tab is active, use function calc_flying
-        - If driving tab is acrive, use function calc_driving
-
-*/
-
 // GLOBAL CONSTANTS
 const hotel_per_night = 180;
 const per_diem_pay = 35;
