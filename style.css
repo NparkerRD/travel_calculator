@@ -39,11 +39,13 @@ body {
 .calc_container {
     width: clamp(600px, 45%, 666px);
     /* height: clamp(650px, 65%, 700px); */
-    min-height: 700px;
+    /* min-height: 700px; */
     box-shadow: 3px 5px 15px 0px rgba(0, 0, 0, 0.25);
     border-radius: 20px 20px 200px 20px;
     background: #fff;
     position: relative;
+    height: max-content;
+    padding-bottom: 20px;
 }
 
 .calc_tabs {
@@ -196,7 +198,46 @@ hr {
     display: none;
 }
 
-/* Tooltip tutorial */
+.tooltip_container {
+    position: relative;
+    cursor: pointer;
+    
+}
+
+.tooltip_text {
+    position: absolute;
+    z-index: 1;
+    color: var(--cc-lt);
+    background: var(--cc-dk);
+    border-radius: 10px;
+    padding: 10px 15px;
+    top: -75%;
+    width: max-content;
+    transform: translate(0%, -80%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    visibility: hidden;
+}
+
+.tooltip_text::after {
+    width: 0;
+    height: 0;
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 15px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--cc-dk);
+}
+
+.tooltip_container:hover .tooltip_text {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Tooltip tutorial 
 .tooltip {
     position: relative;
     display: inline-block;
@@ -241,3 +282,4 @@ hr {
 .tooltip-icon {
     background-image: url('icons8-info-24.png');
 }
+*/

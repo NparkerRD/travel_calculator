@@ -14,11 +14,17 @@ let activeTab = document.querySelector('.active');
 
 // HTML for switching tabs
 const drivingInputGroup = `<div id="input--distance" class="input_group">
-<label for="inputDistance">Distance</label>
+<label class="tooltip_container" for="inputDistance">
+    <span class="tooltip_text">Enter the <b>total</b> miles to be traveled roundtrip</span>
+    Distance
+</label>
 <input class="input input--driving" type="number" name="inputDistance" id="inputDistance">
 </div>`;
 const flyingInputGroup = `<div id="input--cases" class="input_group">
-<label for="inputCases">Cases</label>
+<label class="tooltip_container" for="inputCases">
+    <span class="tooltip_text">Enter the number of tool cases to be shipped</span>
+    Cases
+</label>
 <input class="input input--flying" type="number" name="inputCases" id="inputCases">
 </div>`;
 
