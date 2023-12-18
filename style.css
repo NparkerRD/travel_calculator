@@ -39,7 +39,7 @@ body {
 .calc_container {
     width: clamp(600px, 45%, 666px);
     /* height: clamp(650px, 65%, 700px); */
-    /* min-height: 700px; */
+    min-height: 600px;
     box-shadow: 3px 5px 15px 0px rgba(0, 0, 0, 0.25);
     border-radius: 20px 20px 200px 20px;
     background: #fff;

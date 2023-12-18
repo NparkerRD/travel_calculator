@@ -13,13 +13,23 @@ const elResults = document.querySelector('.calc_breakdown');
 let activeTab = document.querySelector('.active');
 
 // HTML for switching tabs
-const drivingInputGroup = `<div id="input--distance" class="input_group">
-<label class="tooltip_container" for="inputDistance">
-    <span class="tooltip_text">Enter the <b>total</b> miles to be traveled roundtrip</span>
-    Distance
-</label>
-<input class="input input--driving" type="number" name="inputDistance" id="inputDistance">
-</div>`;
+const drivingInputGroup = `
+<div id="input--distance" class="input_group">
+    <label class="tooltip_container" for="inputDistance">
+        <span class="tooltip_text">Enter the number of miles that will be traveled going <b><i>one way</i></b></span>
+        Distance
+    </label>
+    <input class="input input--driving" type="number" name="inputDistance" id="inputDistance">
+</div>
+
+<div id="input--cars" class="input_group">
+    <label class="tooltip_container" for="inputCars">
+        <span class="tooltip_text">Enter the number of cars that will be traveling</span>
+        Cars
+    </label>
+    <input class="input input--driving" type="number" name="inputCars" id="inputCars">
+</div>
+`;
 const flyingInputGroup = `<div id="input--cases" class="input_group">
 <label class="tooltip_container" for="inputCases">
     <span class="tooltip_text">Enter the number of tool cases to be shipped</span>
@@ -29,7 +39,7 @@ const flyingInputGroup = `<div id="input--cases" class="input_group">
 </div>`;
 
 const drivingResultGroup = `<div class="result_group" id="result--gas">
-<p class="label">Gas</p>
+<p class="label">Gas (per car)</p>
 <div class="result result--driving" id="resultGas"></div>
 </div>`;
 const flyingResultGroups = `<div class="result_group" id="result--tickets">
@@ -62,7 +72,7 @@ const calc_flying = function(days, nights, people, hours, cases) {
     const hotel = hotel_per_night * nights;
     const food = per_diem_pay * days;
     const ticket = ticket_cost;
-    const travel_time = roundUp100(hourly_pay * hours);
+    const travel_time = roundUp100(hourly_pay * (hours * 2));
     const shipping = ship_per_case * cases;
     const car_rental = car_per_day * days;
 
@@ -71,15 +81,16 @@ const calc_flying = function(days, nights, people, hours, cases) {
 }
 
 // Calculate cost based on driving
-const calc_driving = function(days, nights, people, hours, distance){
+const calc_driving = function(days, nights, people, hours, distance, cars){
     const mileage_cost = 0.655;
 
     const hotel = hotel_per_night * nights;
     const food = per_diem_pay * days;
-    const travel_time = roundUp100(hourly_pay * hours);
-    const gas = roundUp10(mileage_cost * distance);
+    const travel_time = roundUp100(hourly_pay * (hours * 2)); // Accounts for roundtrip; user only needs to enter hours going one way
+    const gas = roundUp10(mileage_cost * (distance * 2)); // Accounts for roundtrip; user only needs to enter miles going one way
 
-    const total = ((hotel + food + travel_time) * people) + gas;
+    // const total = ((hotel + food + travel_time) * people) + gas;
+    const total = ((hotel + food + travel_time) * people) + (gas * (cars ? cars : 1));
     return [total, hotel, food, travel_time, gas];
 }
 
@@ -105,6 +116,7 @@ tabs.forEach(tab => {
         // Swap out inputs and results
         const inputGroupCases = checkElExists(document.querySelector('#input--cases'));
         const inputGroupDistance = checkElExists(document.querySelector('#input--distance'));
+        const inputGroupCars = checkElExists(document.querySelector('#input--cars'));
         
         const resultGroupTickets = checkElExists(document.querySelector('#result--tickets'));
         const resultGroupShipping = checkElExists(document.querySelector('#result--shipping'));
@@ -127,6 +139,7 @@ tabs.forEach(tab => {
         } else if (activeTab.id === 'tab--flying') {
             // Update flying input fields
             if(inputGroupDistance) inputGroupDistance.remove();
+            if(inputGroupCars) inputGroupCars.remove();
             if (!inputGroupCases) elInputFields.insertAdjacentHTML('beforeend', flyingInputGroup);
 
             // Update flying result fields
@@ -169,9 +182,10 @@ const getResults = () => {
 
     if (activeTab.id === 'tab--driving') {
         const inputDistance = document.querySelector('#inputDistance');
+        const inputCars = document.querySelector('#inputCars');
         const [resultGas] = document.querySelectorAll(".result--driving");
 
-        const [total, hotel, food, travelTime, gas] = calc_driving(+inputDays.value, +inputNights.value, +inputPeople.value, +inputHours.value, +inputDistance.value);
+        const [total, hotel, food, travelTime, gas] = calc_driving(+inputDays.value, +inputNights.value, +inputPeople.value, +inputHours.value, +inputDistance.value, +inputCars.value);
 
         // Display results for driving
         updateText(resultTotal, total);
