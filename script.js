@@ -72,7 +72,8 @@ const calc_flying = function(days, nights, people, hours, cases) {
     const hotel = hotel_per_night * nights;
     const food = per_diem_pay * days;
     const ticket = ticket_cost;
-    const travel_time = roundUp100(hourly_pay * (hours * 2));
+    const travel_time = roundUp100(90 * (hours * 2));
+    // const travel_time = roundUp100(hourly_pay * (hours * 2));
     const shipping = ship_per_case * cases;
     const car_rental = car_per_day * days;
 
@@ -86,7 +87,7 @@ const calc_driving = function(days, nights, people, hours, distance, cars){
 
     const hotel = hotel_per_night * nights;
     const food = per_diem_pay * days;
-    const travel_time = roundUp100(hourly_pay * (hours * 2)); // Accounts for roundtrip; user only needs to enter hours going one way
+    const travel_time = roundUp100(90 * (hours * 2)); // Accounts for roundtrip; user only needs to enter hours going one way
     const gas = roundUp10(mileage_cost * (distance * 2)); // Accounts for roundtrip; user only needs to enter miles going one way
 
     // const total = ((hotel + food + travel_time) * people) + gas;
